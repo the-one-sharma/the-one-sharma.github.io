@@ -5,7 +5,7 @@ Thanks for helping make EconCascade better. Here's how to contribute.
 ## Getting started
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/econcascade.git
+git clone https://github.com/the-one-sharma/econcascade.git
 cd econcascade
 open index.html   # or: python3 -m http.server 8080
 ```
