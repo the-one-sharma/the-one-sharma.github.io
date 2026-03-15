@@ -1,13 +1,13 @@
 # EconCascade
 
-[![Deploy to GitHub Pages](https://github.com/YOUR_GITHUB_USERNAME/econcascade/actions/workflows/deploy.yml/badge.svg)](https://github.com/YOUR_GITHUB_USERNAME/econcascade/actions/workflows/deploy.yml)
+[![Deploy to GitHub Pages](https://github.com/the-one-sharma/econcascade/actions/workflows/deploy.yml/badge.svg)](https://github.com/the-one-sharma/econcascade/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![No dependencies](https://img.shields.io/badge/dependencies-none-brightgreen)
 ![Vanilla JS](https://img.shields.io/badge/built%20with-vanilla%20JS-yellow)
 
 **The free, interactive economics study tool for AP Macro, AP Micro, and EconBowl prep.**
 
-[**→ Live Site**](https://YOUR_GITHUB_USERNAME.github.io/econcascade) · [Report a Bug](https://github.com/YOUR_GITHUB_USERNAME/econcascade/issues) · [Request a Feature](https://github.com/YOUR_GITHUB_USERNAME/econcascade/issues)
+[**→ Live Site**](https://the-one-sharma.github.io/econcascade) · [Report a Bug](https://github.com/the-one-sharma/econcascade/issues) · [Request a Feature](https://github.com/the-one-sharma/econcascade/issues)
 
 ---
 
@@ -54,7 +54,7 @@ Trigger any of **62 economic shocks** and watch the effect ripple through **26 i
 No build step required. It's a single-page static site.
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/econcascade.git
+git clone https://github.com/the-one-sharma/econcascade.git
 cd econcascade
 # Open in browser — any of these work:
 open index.html
@@ -70,7 +70,7 @@ npx serve .
 2. Go to **Settings → Pages**
 3. Set **Source** to `Deploy from a branch`
 4. Set **Branch** to `main`, folder to `/ (root)`
-5. Save — your site will be live at `https://YOUR_GITHUB_USERNAME.github.io/econcascade`
+5. Save — your site will be live at `https://the-one-sharma.github.io/econcascade`
 
 The repo also includes a **GitHub Actions workflow** (`.github/workflows/deploy.yml`) that auto-deploys on every push to `main`.
 
