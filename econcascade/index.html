@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EconCascade — Interactive AP Economics Study Tool</title>
+<meta name="description" content="Interactive economics study tool for AP Macro, AP Micro, and EconBowl. Trigger any economic shock and watch the cascade ripple through 26 connected variables. Includes 15 live graph models.">
+<meta name="keywords" content="AP Economics, AP Macroeconomics, AP Microeconomics, EconBowl, economics study tool, aggregate demand, supply and demand, Phillips curve, loanable funds, money market">
+<meta name="author" content="EconCascade">
+<meta property="og:title" content="EconCascade — Interactive AP Economics">
+<meta property="og:description" content="Shock the economy. Watch everything move. The interactive cascade map and graph lab for AP Macro, AP Micro, and EconBowl prep.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://econcascade.github.io/econcascade/assets/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EconCascade — Interactive AP Economics">
+<meta name="twitter:description" content="Shock the economy. Watch everything move. Free interactive tool for AP Macro, Micro &amp; EconBowl.">
+<meta name="theme-color" content="#0e0e10">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230e0e10'/><path d='M6 22 L12 14 L18 18 L26 8' stroke='%2322d87a' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/><circle cx='26' cy='8' r='2.5' fill='%2322d87a'/></svg>">
+<link rel="canonical" href="https://econcascade.github.io/econcascade/">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div id="progress"></div>
+<a class="skip-link" href="#cascade">Skip to main content</a>
+
+<div id="app" role="main">
+
+<nav>
+  <a class="nav-brand" href="/" aria-label="EconCascade home">
+    <div class="nav-logo">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M2 13 L5.5 7.5 L9 10 L14 4" stroke="#1fd47a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="14" cy="4" r="1.8" fill="#1fd47a"/>
+      </svg>
+    </div>
+    <span class="nav-brand-name">Econ<em>Cascade</em></span>
+  </a>
+  <div class="nav-links">
+    <a class="nav-link" href="#cascade">Cascade</a>
+    <a class="nav-link" href="#graphlab">Graph Lab</a>
+    <a class="nav-link nav-cta" href="#cascade">Try it free →</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow"><span class="eyebrow-dot"></span>AP Macro · AP Micro · EconBowl</div>
+  <h1>Shock the economy.<br><em>Watch everything move.</em></h1>
+  <p>Trigger any of 62 economic shocks and watch 26 variables cascade in real time. Hover any lit node for a contextual explanation of exactly <em>why</em> it moved. Then open the Graph Lab and shift curves on 15 models with real algebraic math — built for AP Macro, AP Micro, and EconBowl.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">62<sup>↗</sup></div>
+      <div class="stat-label">Economic shocks</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">26<sup>↗</sup></div>
+      <div class="stat-label">Connected variables</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">15<sup>↗</sup></div>
+      <div class="stat-label">Live graph models</div>
+    </div>
+  </div>
+</div>
+
+<section aria-label="Cascade Map">
+<div id="cascade" class="section-head">
+  <div class="sbadge sb-blue">1</div>
+  <h2>Cascade Map — shock the economy</h2>
+</div>
+<p class="section-sub">Click any shock below. Hover lit nodes to see <em>why</em> they move. Press <span class="kbd">Esc</span> to reset.</p>
+
+  <div class="panels-grid">
+    <div class="panel">
+      <div class="panel-title" id="panel-monetary"><span class="pt-dot" style="background:#5b8dee;box-shadow:0 0 5px rgba(91,141,238,.5)"></span>Monetary policy</div>
+      <div class="btn-group" role="group" aria-labelledby="panel-monetary">
+        <button type="button" class="trigger-btn" data-ev="fedBuys">Fed buys bonds</button>
+        <button type="button" class="trigger-btn" data-ev="fedSells">Fed sells bonds</button>
+        <button type="button" class="trigger-btn" data-ev="rrUp">Reserve req. ↑</button>
+        <button type="button" class="trigger-btn" data-ev="rrDown">Reserve req. ↓</button>
+        <button type="button" class="trigger-btn" data-ev="discountUp">Discount rate ↑</button>
+        <button type="button" class="trigger-btn" data-ev="discountDown">Discount rate ↓</button>
+        <button type="button" class="trigger-btn" data-ev="moneySupplyUp">Money supply ↑ (QE)</button>
+        <button type="button" class="trigger-btn" data-ev="moneySupplyDown">Money supply ↓ (QT)</button>
+        <button type="button" class="trigger-btn" data-ev="inflExpUp">Inflation expect. ↑</button>
+        <button type="button" class="trigger-btn" data-ev="inflExpDown">Inflation expect. ↓</button>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title" id="panel-fiscal"><span class="pt-dot" style="background:#a78bfa;box-shadow:0 0 5px rgba(167,139,250,.5)"></span>Fiscal policy</div>
+      <div class="btn-group" role="group" aria-labelledby="panel-fiscal">
+        <button type="button" class="trigger-btn" data-ev="taxCut">Tax cut</button>
+        <button type="button" class="trigger-btn" data-ev="taxHike">Tax hike</button>
+        <button type="button" class="trigger-btn" data-ev="govtSpendUp">Govt spending ↑</button>
+        <button type="button" class="trigger-btn" data-ev="govtSpendDown">Govt spending ↓</button>
+        <button type="button" class="trigger-btn" data-ev="debtUp">Govt debt ↑</button>
+        <button type="button" class="trigger-btn" data-ev="transfersUp">Transfer payments ↑</button>
+        <button type="button" class="trigger-btn" data-ev="minWageUp">Min. wage ↑</button>
+        <button type="button" class="trigger-btn" data-ev="subsidyProd">Production subsidy</button>
+        <button type="button" class="trigger-btn" data-ev="expansFiscal">Expansionary fiscal</button>
+        <button type="button" class="trigger-btn" data-ev="contractFiscal">Contractionary fiscal</button>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title" id="panel-supply"><span class="pt-dot" style="background:#ff4060;box-shadow:0 0 5px rgba(255,64,96,.5)"></span>Aggregate supply shocks</div>
+      <div class="btn-group" role="group" aria-labelledby="panel-supply">
+        <button type="button" class="trigger-btn" data-ev="oilShock">Oil price spike</button>
+        <button type="button" class="trigger-btn" data-ev="oilDrop">Oil price falls</button>
+        <button type="button" class="trigger-btn" data-ev="techGrowth">Tech productivity ↑</button>
+        <button type="button" class="trigger-btn" data-ev="laborSupplyUp">Labor supply ↑</button>
+        <button type="button" class="trigger-btn" data-ev="laborSupplyDown">Labor supply ↓</button>
+        <button type="button" class="trigger-btn" data-ev="inputCostUp">Input costs ↑</button>
+        <button type="button" class="trigger-btn" data-ev="inputCostDown">Input costs ↓</button>
+        <button type="button" class="trigger-btn" data-ev="capitalStock">Capital stock ↑</button>
+        <button type="button" class="trigger-btn" data-ev="naturalDisaster">Natural disaster</button>
+        <button type="button" class="trigger-btn" data-ev="pandemic">Pandemic / supply chain</button>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title" id="panel-demand"><span class="pt-dot" style="background:#1fd47a;box-shadow:0 0 5px rgba(31,212,122,.5)"></span>Aggregate demand shocks</div>
+      <div class="btn-group" role="group" aria-labelledby="panel-demand">
+        <button type="button" class="trigger-btn" data-ev="consConfUp">Consumer confidence ↑</button>
+        <button type="button" class="trigger-btn" data-ev="consConfDown">Consumer confidence ↓</button>
+        <button type="button" class="trigger-btn" data-ev="invOptimism">Business optimism ↑</button>
+        <button type="button" class="trigger-btn" data-ev="invPessimism">Business pessimism ↑</button>
+        <button type="button" class="trigger-btn" data-ev="wealthEffect">Wealth effect (stocks ↑)</button>
+        <button type="button" class="trigger-btn" data-ev="housingBoom">Housing boom</button>
+        <button type="button" class="trigger-btn" data-ev="housingBust">Housing bust</button>
+        <button type="button" class="trigger-btn" data-ev="recessionGap">Recessionary gap</button>
+        <button type="button" class="trigger-btn" data-ev="inflatGap">Inflationary gap</button>
+        <button type="button" class="trigger-btn" data-ev="stagflation">Stagflation</button>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title" id="panel-trade"><span class="pt-dot" style="background:#f5a623;box-shadow:0 0 5px rgba(245,166,35,.5)"></span>Trade &amp; exchange rate</div>
+      <div class="btn-group" role="group" aria-labelledby="panel-trade">
+        <button type="button" class="trigger-btn" data-ev="tariffUp">Tariff imposed</button>
+        <button type="button" class="trigger-btn" data-ev="tariffDown">Tariff removed</button>
+        <button type="button" class="trigger-btn" data-ev="exportBoom">Export demand ↑</button>
+        <button type="button" class="trigger-btn" data-ev="importBoom">Import surge</button>
+        <button type="button" class="trigger-btn" data-ev="dollarStrong">Dollar appreciates</button>
+        <button type="button" class="trigger-btn" data-ev="dollarWeak">Dollar depreciates</button>
+        <button type="button" class="trigger-btn" data-ev="quotaImposed">Import quota</button>
+        <button type="button" class="trigger-btn" data-ev="tradeSurplus">Trade surplus</button>
+        <button type="button" class="trigger-btn" data-ev="tradeDeficit">Trade deficit</button>
+        <button type="button" class="trigger-btn" data-ev="capiFlowIn">Capital inflow</button>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title" id="panel-micro"><span class="pt-dot" style="background:#fb923c;box-shadow:0 0 5px rgba(251,146,60,.5)"></span>Labor &amp; microeconomics</div>
+      <div class="btn-group" role="group" aria-labelledby="panel-micro">
+        <button type="button" class="trigger-btn" data-ev="unionStrength">Union bargaining ↑</button>
+        <button type="button" class="trigger-btn" data-ev="automationUp">Automation ↑</button>
+        <button type="button" class="trigger-btn" data-ev="demandElastic">Elastic demand shock</button>
+        <button type="button" class="trigger-btn" data-ev="demandInelastic">Inelastic demand shock</button>
+        <button type="button" class="trigger-btn" data-ev="monopolyPower">Monopoly pricing</button>
+        <button type="button" class="trigger-btn" data-ev="perfectComp">Perfect competition entry</button>
+        <button type="button" class="trigger-btn" data-ev="negExtern">Negative externality</button>
+        <button type="button" class="trigger-btn" data-ev="posExtern">Positive externality</button>
+        <button type="button" class="trigger-btn" data-ev="pigouvianTax">Pigouvian tax</button>
+        <button type="button" class="trigger-btn" data-ev="priceFloor">Price floor (above eq.)</button>
+        <button type="button" class="trigger-btn" data-ev="priceCeiling">Price ceiling (below eq.)</button>
+        <button type="button" class="trigger-btn" data-ev="perUnitTax">Per-unit tax on supplier</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <button type="button" class="reset-btn" onclick="resetAll()">↺ Reset cascade</button>
+    <div class="legend">
+      <div class="leg"><div class="leg-swatch" style="background:var(--green);box-shadow:0 0 5px rgba(31,212,122,.4)"></div>Rises</div>
+      <div class="leg"><div class="leg-swatch" style="background:var(--red);box-shadow:0 0 5px rgba(255,64,96,.4)"></div>Falls</div>
+      <div class="leg"><div class="leg-swatch" style="background:var(--amber);box-shadow:0 0 5px rgba(245,166,35,.4)"></div>Ambiguous</div>
+      <div class="leg"><div class="leg-swatch" style="background:var(--border2)"></div>Unchanged</div>
+    </div>
+  </div>
+
+  <div id="canvas-wrap">
+    <canvas id="c" class="main-canvas" role="img" aria-label="Economic cascade map showing 26 interconnected variables. Click a shock button above to trigger a cascade."></canvas>
+    <div id="tooltip"></div>
+  </div>
+  <div class="info-bar" id="info-bar"><span class="info-dot"></span>Pick a shock above — watch the cascade fire node by node.</div>
+
+</section>
+
+  <div class="section-break"><span class="section-break-label">Graph Lab</span></div>
+
+  <section aria-label="Graph Lab">
+<div id="graphlab" class="section-head section-head--graphlab">
+    <div class="sbadge sb-green">2</div>
+    <h2>Graph Lab — shift curves interactively</h2>
+  </div>
+  <p class="section-sub">Select a graph → click a shock. Curves animate to the exact algebraic equilibrium. <span class="kbd">R</span> resets the graph. <span class="kbd">Esc</span> resets the cascade.</p>
+
+  <div class="graph-tabs" id="graph-tabs">
+    <button type="button" class="gtab active" data-graph="adas">AD-AS</button>
+    <button type="button" class="gtab" data-graph="sd">Supply &amp; Demand</button>
+    <button type="button" class="gtab" data-graph="lf">Loanable Funds</button>
+    <button type="button" class="gtab" data-graph="mm">Money Market</button>
+    <button type="button" class="gtab" data-graph="phillips">Phillips Curve</button>
+    <button type="button" class="gtab" data-graph="ppc">PPC</button>
+    <button type="button" class="gtab" data-graph="labor">Labor Market</button>
+    <button type="button" class="gtab" data-graph="cost">Cost Curves</button>
+    <button type="button" class="gtab" data-graph="monopoly">Monopoly</button>
+    <button type="button" class="gtab" data-graph="moncomp">Mono. Comp.</button>
+    <button type="button" class="gtab" data-graph="forex">Foreign Exchange</button>
+    <button type="button" class="gtab" data-graph="invdem">Investment Demand</button>
+    <button type="button" class="gtab" data-graph="externality">Externality</button>
+    <button type="button" class="gtab" data-graph="lorenz">Lorenz Curve</button>
+    <button type="button" class="gtab" data-graph="tariff">Tariff &amp; Trade</button>
+  </div>
+
+  <div class="graph-area">
+    <div class="graph-canvas-wrap">
+      <div class="graph-chrome"><span class="graph-chrome-name" id="graph-title-label">AD-AS Model</span><span class="graph-chrome-hint">click shocks to shift curves</span></div>
+      <canvas id="gc" width="580" height="430" role="img" aria-label="Interactive economics graph" data-base-width="580" data-base-height="430"></canvas>
+    </div>
+    <div class="graph-sidebar">
+      <div class="graph-info" id="graph-info"><strong>AD-AS Model</strong> Shows how price level and output are determined. Click a shock to see the curves shift.</div>
+      <div class="shock-panel" id="shock-panel">
+        <div class="shock-panel-title"><span class="sp-dot"></span>Shocks</div>
+      </div>
+      <button type="button" class="graph-reset" onclick="resetGraph()">↺ Reset graph</button>
+    </div>
+  </div>
+  <div class="info-bar info-bar--graph" id="graph-info-bar"><span class="info-dot"></span>Select a shock to shift the curves.</div>
+
+</section>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-sig">Econ<em>Cascade</em></div>
+        <div class="footer-tagline">The free interactive economics tool for AP Macro, AP Micro, and EconBowl prep. Every curve is real math. Every tooltip explains causality.</div>
+        <div class="footer-stats">
+          <div class="footer-stat-row"><span class="footer-stat-num">62</span> economic shocks</div>
+          <div class="footer-stat-row"><span class="footer-stat-num">26</span> connected variables</div>
+          <div class="footer-stat-row"><span class="footer-stat-num">15</span> live graph models</div>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <div class="footer-links-list">
+          <a class="footer-link" href="#cascade">Cascade Map</a>
+          <a class="footer-link" href="#graphlab">Graph Lab</a>
+          <a class="footer-link" href="#cascade">Monetary Policy</a>
+          <a class="footer-link" href="#cascade">Fiscal Policy</a>
+          <a class="footer-link" href="#cascade">Supply Shocks</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Topics covered</div>
+        <div class="footer-tags-list">
+          <div class="ftag"><span class="ftag-dot"></span>AD-AS model &amp; gaps</div>
+          <div class="ftag"><span class="ftag-dot"></span>Supply &amp; demand</div>
+          <div class="ftag"><span class="ftag-dot"></span>Money market</div>
+          <div class="ftag"><span class="ftag-dot"></span>Phillips curve</div>
+          <div class="ftag"><span class="ftag-dot"></span>Monopoly &amp; regulation</div>
+          <div class="ftag"><span class="ftag-dot"></span>Externalities &amp; welfare</div>
+          <div class="ftag"><span class="ftag-dot"></span>Lorenz curve &amp; Gini</div>
+          <div class="ftag"><span class="ftag-dot"></span>Tariffs &amp; trade</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy"><em>EconCascade</em> v1.2 — Free to use, forever.</div>
+      <div class="footer-made"><span class="footer-made-dot"></span>Built for AP Economics students</div>
+    </div>
+  </footer>
+<script src="assets/app.js"></script>
+</div>
+</body>
+</html>
